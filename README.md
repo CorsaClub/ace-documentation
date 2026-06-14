@@ -1,55 +1,55 @@
 # 🏎️ Assetto Corsa Evo — Vehicle Physics Reference Documentation
 
-Bienvenue sur le dépôt central de la documentation communautaire dédiée à l'architecture physique et structurelle d'**Assetto Corsa Evo (v0.7.1)**. 
+Welcome to the central community repository dedicated to the structural data and vehicle physics architecture of **Assetto Corsa Evo (v0.7.1)**. 
 
-Ce projet a pour but de fournir une base de connaissances standardisée, claire et technique pour aider les moddeurs, les ingénieurs en dynamique de véhicule et les passionnés de simulation à comprendre, concevoir et modifier proprement les fichiers physiques du jeu.
+This project serves as an open, standardized, and highly technical knowledge base designed to help modders, vehicle dynamics engineers, and simulation enthusiasts understand, build, and adapt core vehicle files within the simulation engine.
 
 ---
 
-## 📖 Contenu de la Documentation
+## 📖 Documentation Structure
 
-Chaque ressource analysée suit une structure de documentation rigoureuse pour garantir une clarté maximale :
-1. **Description Générale :** Rôle global de l'asset au sein du moteur de physique.
-2. **Zones d'Influence :** Impact concret du fichier sur le comportement dynamique en piste.
-3. **Architecture Clé & Paramètres :** Explications détaillées des variables, types de données et unités.
-4. **Stratégies d'Implémentation :** Exemples concrets de profils mécaniques (Série, GT3, Prototypes, etc.).
+To ensure maximum clarity and professionalism for the developer community, every analyzed physics asset follows a strict, uniform blueprint:
+1. **General Description:** The fundamental role of the asset within the core physics engine architecture.
+2. **Areas of Influence:** The concrete physical consequences of the asset and how it dictates track behavior.
+3. **Key Architecture & Fields:** In-depth technical breakdowns of data parameters, formatting variables, and units.
+4. **Configuration Strategies:** Real-world engineering profiles mapping numbers to recognizable vehicle archetypes (e.g., Stock Road, GT3, Prototypes).
 
-### 🗂️ Les Assets Physiques Cartographiés
+### 🗂️ Mapped Vehicle Physics Assets
 
-| Asset Module | Extension de Fichier | Domaine d'Application & Impact Dynamique |
+| Asset Module | File Extension | Core Operational Domain & Dynamic Impact |
 | :--- | :---: | :--- |
-| **Brake System** | `.brakesystem` | Couple maximal, balance de freinage statique, modules électroniques d'aide (EBB, Steer-Brake) et logiques algorithmiques associées. |
-| **Brakes Hardware** | `.brakes` | Modélisation thermique locale, coefficients de friction dynamiques (Courbe d'efficacité selon la température), taux d'usure des disques/plaquettes et refroidissement (vitesse, pluie). |
-| **Car Data** | `.cardata` | Masse totale à sec, vecteurs d'inertie (Pitch, Roll, Yaw), hauteur du centre de gravité, répartition des masses et coordonnées physiques du réservoir de carburant. |
-| **Car Engine** | `.carengine` | Génération de puissance (courbes de couple/RPM), inertie de l'équipage mobile (volant moteur), traînée de frein moteur et cartographies de suralimentation (turbo). |
-| **Car Setup** | `.setup` / `.ini` | Interface des réglages du garage : pressions de pneus, géométrie d'alignement (carrossage, parallélisme), raideur des ressorts/barres, et clapets d'amortisseurs à 4 voies. |
-| **Car Setup Limits** | `.carsetuplimits` | Encadrement administratif et technique : valeurs Min/Max, pas d'incrémentation (Steps), visibilité dans les menus et brides réglementaires (BOP). |
+| **Brake System** | `.brakesystem` | Governs vehicle-wide peak deceleration balance, static brake bias, electronic cockpit adjusters, and complex controller logic loops (EBB, Steer-Brake systems). |
+| **Brakes Hardware** | `.brakes` | Manages localized wheel physics, including thermal capacities, ambient/airflow/wet cooling rates, pad/disc wear ratios, and temperature-to-friction look-up curves. |
+| **Car Data** | `.cardata` | Defines the baseline chassis carcass, center of gravity height, global dry weight, polar inertia tensors (Pitch/Roll/Yaw), and volumetric fuel tank tracking coordinates. |
+| **Car Engine** | `.carengine` | Maps powertrain performance via internal combustion torque curves, rotating assembly flywheel inertia mass, lift-throttle engine drag parameters, and turbocharger boost matrix curves. |
+| **Car Setup** | `.setup` / `.ini` | Exposes pit-garage engineering variables such as cold tyre inflation pressures, alignment geometry (camber/toe), structural coil spring rates, and 4-way damper valving steps. |
+| **Car Setup Limits** | `.carsetuplimits` | Enforces regulatory, technical, and administrative boundaries, including min/max sliders, incremental steps, UI visibility flags, and Balance of Performance (BOP) constraints. |
 
 ---
 
-## 💾 Accéder au Guide PDF Complet
+## 💾 Download the Complete Technical PDF
 
-Pour une lecture confortable sur un second écran ou une tablette pendant vos sessions de modding, le guide technique complet est disponible au format PDF compilé :
+For a seamless dual-monitor reading experience or mobile browsing in your modding workspace, the complete structured reference guide is compiled as a print-ready PDF document:
 
-👉 **[Télécharger / Consulter le Guide Complet des Assets Physiques (PDF)](./README_Physics_Documentation.pdf)**
+👉 **[Download / View the Complete Vehicle Physics Guide (PDF)](./README_Physics_Documentation.pdf)**
 
-*(La visionneuse native de GitHub vous permet de naviguer et d'effectuer des recherches textuelles via `Ctrl + F` directement dans le fichier).*
-
----
-
-## 🤝 Contribuer au Projet
-
-Les découvertes collaboratives sont les bienvenues ! Si vous identifiez de nouveaux paramètres physiques via de l'ingénierie inverse, l'analyse de télémétrie ou des tests en jeu :
-1. **Forkez** ce dépôt.
-2. Ajoutez ou ajustez les descriptions en conservant la structure unifiée du projet.
-3. Soumettez une **Pull Request** détaillée expliquant vos conclusions ou les données vérifiées.
+*(Note: GitHub's native interface includes an integrated PDF viewer allowing full text searches via `Ctrl + F` or `Cmd + F` directly inside the file).*
 
 ---
 
-## 📄 Licence
+## 🤝 Contributing to the Repository
 
-Ce projet est distribué sous la licence **Creative Commons Attribution 4.0 International (CC BY 4.0)**. 
-Vous êtes libre de partager, copier, distribuer et modifier ce contenu, y compris pour des projets tiers, à la seule condition de **créditer les auteurs originaux** et de mentionner la communauté.
+Collaborative reverse engineering keeps this documentation robust and up to date. If you discover undocumented physics fields, verify a look-up table translation, or map telemetry outputs to newly uncovered strings:
+1. **Fork** this repository.
+2. Create or adjust descriptions while strictly maintaining the project's layout formatting.
+3. Submit a clean **Pull Request** explaining your physical testing methods, source files, or verified data parameters.
 
 ---
-*Mentions légales : Ce projet est une initiative bénévole et indépendante de la communauté. Assetto Corsa Evo est une marque déposée de Kunos Simulazioni. Les informations fournies ici le sont à titre éducatif pour l'aide au modding.*
+
+## 📄 License
+
+This documentation suite is released and made available to the public under the terms of the **Creative Commons Attribution 4.0 International License (CC BY 4.0)**. 
+You are entirely free to copy, share, redistribute, adapt, or build upon this content for any purpose (including third-party modding frameworks), provided you give **appropriate credit to the original authors and the community project**.
+
+---
+*Disclaimer: This repository is a community-driven, non-commercial research initiative. Assetto Corsa Evo is a registered trademark of Kunos Simulazioni. All technical descriptions are provided transparently for educational, data-mapping, and modification reference purposes.*
