@@ -31,7 +31,7 @@ To ensure maximum clarity and professionalism for the developer community, every
 
 For a seamless dual-monitor reading experience or mobile browsing in your modding workspace, the complete structured reference guide is compiled as a print-ready PDF document:
 
-👉 **[Download / View the Complete Vehicle Physics Guide (PDF)](./README_Physics_Documentation.pdf)**
+👉 **[Download / View the Complete Vehicle Physics Guide (PDF)](./ACE%20-%20Cars%20Physics%20Assets.pdf)**
 
 *(Note: GitHub's native interface includes an integrated PDF viewer allowing full text searches via `Ctrl + F` or `Cmd + F` directly inside the file).*
 
