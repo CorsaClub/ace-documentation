@@ -24,6 +24,7 @@ To ensure maximum clarity and professionalism for the developer community, every
 | **Car Engine** | `.carengine` | Maps powertrain performance via internal combustion torque curves, rotating assembly flywheel inertia mass, lift-throttle engine drag parameters, and turbocharger boost matrix curves. |
 | **Car Setup** | `.setup` / `.ini` | Exposes pit-garage engineering variables such as cold tyre inflation pressures, alignment geometry (camber/toe), structural coil spring rates, and 4-way damper valving steps. |
 | **Car Setup Limits** | `.carsetuplimits` | Enforces regulatory, technical, and administrative boundaries, including min/max sliders, incremental steps, UI visibility flags, and Balance of Performance (BOP) constraints. |
+| **Car Setup Units** | `.carsetupunits` | Handles physics localization mappings, translating raw SI variables (e.g., Newtons, Kelvins) into visual UI values like bars, PSI, degrees, or clicks. |
 
 ---
 
