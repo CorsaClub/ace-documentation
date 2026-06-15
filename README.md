@@ -25,6 +25,7 @@ To ensure maximum clarity and professionalism for the developer community, every
 | **Car Setup** | `.setup` / `.ini` | Exposes pit-garage engineering variables such as cold tyre inflation pressures, alignment geometry (camber/toe), structural coil spring rates, and 4-way damper valving steps. |
 | **Car Setup Limits** | `.carsetuplimits` | Enforces regulatory, technical, and administrative boundaries, including min/max sliders, incremental steps, UI visibility flags, and Balance of Performance (BOP) constraints. |
 | **Car Setup Units** | `.carsetupunits` | Handles physics localization mappings, translating raw SI variables (e.g., Newtons, Kelvins) into visual UI values like bars, PSI, degrees, or clicks. |
+| **Car Tuning Parts** | `.tuningpart` | Serves as a modular asset router, managing performance packages, component overrides (e.g., engine/LSD swaps), and system toggles like disabling ABS/TC. |
 
 ---
 
