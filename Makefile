@@ -10,7 +10,7 @@ all: list
 
 ## List available file IDs
 list:
-	@./convert.sh 2>/dev/null || true
+	@./scripts/convert.sh 2>/dev/null || true
 
 ## Install dependencies into the local virtualenv
 setup: $(MARKER)
@@ -27,7 +27,7 @@ convert: $(MARKER)
 ifndef ID
 	$(error ID is required. Usage: make convert ID=1)
 endif
-	./convert.sh $(ID)
+	./scripts/convert.sh $(ID)
 
 ## Remove generated output
 clean:

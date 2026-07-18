@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Pull Request (proposed edit)
+    url: https://github.com/CorsaClub/ace-documentation/compare
+    about: Prefer a PR if you already have a concrete text or table change ready to merge.

@@ -1,96 +1,47 @@
-# 🏎️ Assetto Corsa Evo — Vehicle Physics Reference Documentation
+# Assetto Corsa EVO — Vehicle Physics Reference
 
-Welcome to the central community repository dedicated to the structural data and vehicle physics architecture of **Assetto Corsa Evo (v0.7.1)**. 
+Community documentation of **Assetto Corsa EVO** car physics assets (target version **0.7.1**): schemas, units, and field descriptions for modders and vehicle-dynamics work.
 
-This project serves as an open, standardized, and highly technical knowledge base designed to help modders, vehicle dynamics engineers, and simulation enthusiasts understand, build, and adapt core vehicle files within the simulation engine.
+This is **not** official Kunos Simulazioni documentation. The Markdown source opens with a **Preface** that explains scope, methodology, and how inferred entries should be treated — read it before relying on any field.
 
----
+## Repository layout
 
-## 📖 Documentation Structure
+| Path | Contents |
+| :--- | :--- |
+| [`docs/pdf/`](./docs/pdf/) | Source PDF reference |
+| [`docs/markdown/`](./docs/markdown/) | PDF converted to Markdown (via Marker) |
+| [`scripts/convert.sh`](./scripts/convert.sh) | PDF → Markdown conversion helper |
 
-To ensure maximum clarity and professionalism for the developer community, every analyzed physics asset follows a strict, uniform blueprint:
-1. **General Description:** The fundamental role of the asset within the core physics engine architecture.
-2. **Areas of Influence:** The concrete physical consequences of the asset and how it dictates track behavior.
-3. **Key Architecture & Fields:** In-depth technical breakdowns of data parameters, formatting variables, and units.
-4. **Configuration Strategies:** Real-world engineering profiles mapping numbers to recognizable vehicle archetypes (e.g., Stock Road, GT3, Prototypes).
+## Report a correction
 
-### 🗂️ Mapped Vehicle Physics Assets
+Found a wrong unit, a shaky description, or a missing field?
 
-| Asset Module | File Extension | Core Operational Domain & Dynamic Impact |
-| :--- | :---: | :--- |
-| **Brake System** | `.brakesystem` | Governs vehicle-wide peak deceleration balance, static brake bias, electronic cockpit adjusters, and complex controller logic loops (EBB, Steer-Brake systems). |
-| **Brakes Hardware** | `.brakes` | Manages localized wheel physics, including thermal capacities, ambient/airflow/wet cooling rates, pad/disc wear ratios, and temperature-to-friction look-up curves. |
-| **Car Data** | `.cardata` | Defines the baseline chassis carcass, center of gravity height, global dry weight, polar inertia tensors (Pitch/Roll/Yaw), and volumetric fuel tank tracking coordinates. |
-| **Car Engine** | `.carengine` | Maps powertrain performance via internal combustion torque curves, rotating assembly flywheel inertia mass, lift-throttle engine drag parameters, and turbocharger boost matrix curves. |
-| **Car Setup** | `.carsetup` | Exposes pit-garage engineering variables such as cold tyre inflation pressures, alignment geometry (camber/toe), structural coil spring rates, and 4-way damper valving steps. |
-| **Car Setup Limits** | `.carsetuplimits` | Enforces regulatory, technical, and administrative boundaries, including min/max sliders, incremental steps, UI visibility flags, and Balance of Performance (BOP) constraints. |
-| **Car Setup Units** | `.carsetupunits` | Handles physics localization mappings, translating raw SI variables (e.g., Newtons, Kelvins) into visual UI values like bars, PSI, degrees, or clicks. |
-| **Car Tuning Parts** | `.tuningpart` | Serves as a modular asset router, managing performance packages, component overrides (e.g., engine/LSD swaps), and system toggles like disabling ABS/TC. |
-| **Car Electronics** | `.carelectronics` | Manages active driver aid logic loops, defining multi-map slip thresholds, torque cut levels, and intervention matrices for ABS and Traction Control. |
+→ **[Open a documentation correction issue](https://github.com/CorsaClub/ace-documentation/issues/new?template=documentation-correction.yml)**
 
----
+Include the section, field ID (when relevant), current text, proposed change, and evidence (asset values, in-game behaviour, game version). Maintainers will review and update the reference.
 
-## 🔧 PDF to Markdown Conversion
+If you already have a concrete edit ready, open a **Pull Request** instead — Issues remain preferred for “something is wrong, please fix it.”
 
-PDFs are stored in `docs/pdf/`. The conversion script uses [Marker](https://github.com/datalab-to/marker) locally and outputs Markdown files to `docs/markdown/`.
+## PDF conversion (maintainers)
 
-**Prerequisites:** Python 3.12 (`/opt/homebrew/bin/python3.12`) — the virtualenv and dependencies are installed automatically on first run.
-
-### Available files
-
-| ID | File |
-| :---: | :--- |
-| `1` | ACE - Cars Physics Assets.pdf |
-
-### Commands
+Conversion uses [Marker](https://github.com/datalab-to/marker). Requires Python 3.12. Register new PDFs in the `REGISTRY` array inside `scripts/convert.sh`.
 
 ```sh
-# List available IDs
-./convert.sh
+make list                 # list available PDF IDs
+make convert ID=1         # convert ID 1 → docs/markdown/
+make setup                # install deps into .venv only
 
-# Convert a PDF by ID
-./convert.sh 1
-
-# Via Make
-make convert ID=1
-
-# Install dependencies only (no conversion)
-make setup
-
-# Delete generated Markdown output
-make clean
-
-# Delete everything (output + virtualenv)
-make distclean
+./scripts/convert.sh      # same listing (no args)
+./scripts/convert.sh 1    # convert by ID
 ```
 
-> To add a new PDF, place it in `docs/pdf/` and register it in the `REGISTRY` array at the top of `convert.sh`.
+```sh
+make clean                # remove docs/markdown/
+make distclean            # remove output + .venv
+```
 
----
+## License
 
-## 💾 Download the Complete Technical PDF
+Released under **[CC BY 4.0](./LICENSE)**. You may share and adapt the material with appropriate credit.
 
-For a seamless dual-monitor reading experience or mobile browsing in your modding workspace, the complete structured reference guide is compiled as a print-ready PDF document:
-
-👉 **[Download / View the Complete Vehicle Physics Guide (PDF)](./ACE%20-%20Cars%20Physics%20Assets.pdf)**
-
-*(Note: GitHub's native interface includes an integrated PDF viewer allowing full text searches via `Ctrl + F` or `Cmd + F` directly inside the file).*
-
----
-
-## 🤝 Contributing to the Repository
-
-Collaborative reverse engineering keeps this documentation robust and up to date. If you discover undocumented physics fields, verify a look-up table translation, or map telemetry outputs to newly uncovered strings:
-1. **Fork** this repository.
-2. Create or adjust descriptions while strictly maintaining the project's layout formatting.
-3. Submit a clean **Pull Request** explaining your physical testing methods, source files, or verified data parameters.
-
----
-
-## 📄 License
-
-This documentation suite is released and made available to the public under the terms of the **Creative Commons Attribution 4.0 International License (CC BY 4.0)**. 
-You are entirely free to copy, share, redistribute, adapt, or build upon this content for any purpose (including third-party modding frameworks), provided you give **appropriate credit to the original authors and the community project**.
-
----
-*Disclaimer: This repository is a community-driven, non-commercial research initiative. Assetto Corsa Evo is a registered trademark of Kunos Simulazioni. All technical descriptions are provided transparently for educational, data-mapping, and modification reference purposes.*
+Assetto Corsa EVO is a trademark of Kunos Simulazioni. This repository is an independent, non-commercial community project.

@@ -1,0 +1,74 @@
+name: Documentation correction
+description: Report an incorrect unit, description, missing field, or inferred value that should be revised.
+title: "[Correction] "
+labels: ["correction", "documentation"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping improve this reference. Please be as specific as possible — section number, field ID, and what you believe is wrong.
+
+        This project is **unofficial** and many entries are **inferred**. Evidence (asset values, in-game behaviour, comparisons) makes corrections much faster to apply.
+
+  - type: dropdown
+    id: kind
+    attributes:
+      label: What kind of correction is this?
+      options:
+        - Incorrect unit of measurement
+        - Incorrect or misleading description
+        - Missing field / incomplete coverage
+        - Wrong field name or schema ID
+        - Example / value range issue
+        - Other
+    validations:
+      required: true
+
+  - type: input
+    id: section
+    attributes:
+      label: Section
+      description: Document part and asset (e.g. 19. Tyre [.tyre], 17. Suspension [.suspension]).
+      placeholder: "19. Tyre [.tyre]"
+    validations:
+      required: true
+
+  - type: input
+    id: field_id
+    attributes:
+      label: Field ID (if applicable)
+      description: Schema ID from the table (e.g. 4c, 5e, 7e). Leave blank if the issue is section-wide.
+      placeholder: "4c"
+
+  - type: textarea
+    id: current
+    attributes:
+      label: Current text
+      description: Paste the current unit and/or description (or quote the relevant passage).
+      placeholder: "Rate | N/m | Vertical carcass spring rate…"
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposed
+    attributes:
+      label: Proposed correction
+      description: What should it say instead? Include the corrected unit and/or description if you have one.
+    validations:
+      required: true
+
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence
+      description: Why is this better? Asset paths/values, game version, telemetry, comparison with other cars, etc.
+      placeholder: "In ks_… .tyre, Rate is ~3e5 and matches carcass stiffness; game version 0.7.1…"
+    validations:
+      required: true
+
+  - type: input
+    id: game_version
+    attributes:
+      label: Game version checked
+      description: Assetto Corsa EVO build you verified against (if known).
+      placeholder: "0.7.1"
