@@ -10,6 +10,7 @@ This is **not** official Kunos Simulazioni documentation. The Markdown source op
 | :--- | :--- |
 | [`docs/pdf/`](./docs/pdf/) | Source PDF reference |
 | [`docs/markdown/`](./docs/markdown/) | PDF converted to Markdown (via Marker) |
+| [`descriptions/`](./descriptions/) | Per-asset written descriptions (role, architecture, examples) |
 | [`scripts/convert.sh`](./scripts/convert.sh) | PDF → Markdown conversion helper |
 
 ## Report a correction
