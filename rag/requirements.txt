@@ -1,0 +1,4 @@
+markitdown[pdf]
+mcp
+txtai[pipeline]
+sentence-transformers
